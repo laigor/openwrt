@@ -1,0 +1,74 @@
+//////////////////////////////////////////////////////////////////
+//
+// gnugkbuidopts.h autoconfig results (currently only used on Windows)
+//
+// This work is published under the GNU Public License (GPL)
+// see file COPYING for details.
+// We also explicitely grant the right to link this code
+// with the OpenH323 library.
+//
+//////////////////////////////////////////////////////////////////
+
+#ifndef GNUGKBUILDOPTS_H
+#define GNUGKBUILDOPTS_H 1
+
+// H.460.18 / H.460.19
+
+#undef HAS_H46018
+
+
+// Radius
+
+#undef HAS_RADIUS
+
+
+// MYSQL
+
+#undef HAS_MYSQL
+#if defined(_MSC_VER) && HAS_MYSQL
+  #pragma include_alias(<mysql.h>, <@MYSQL_DIR@/include/mysql.h>)
+  #define MYSQL_LIBRARY "@MYSQL_DIR@/lib/opt/libmysql.lib"
+#endif
+
+
+// PostgreSQL
+
+#undef HAS_PGSQL
+#if defined(_MSC_VER) && HAS_PGSQL
+  #pragma include_alias(<libpq-fe.h>, <@PGSQL_DIR@/include/libpq-fe.h>)
+  #define PGSQL_LIBRARY "@PGSQL_DIR@/lib/libpq.lib"
+#endif
+
+
+// Firebird
+
+#undef HAS_FIREBIRD
+#if defined(_MSC_VER) && HAS_FIREBIRD
+  #pragma include_alias(<ibase.h>, <@FIREBIRD_DIR@/include/ibase.h>)
+  #define FIREBIRD_LIBRARY "@FIREBIRD_DIR@/lib/firebird.lib"
+#endif
+
+
+// SQLite
+
+#undef HAS_SQLITE
+#if defined(_MSC_VER) && HAS_SQLITE
+  #pragma include_alias(<sqlite3.h>, <@SQLITE_DIR@/sqlite-source/sqlite3.h>)
+  #define SQLITE_LIBRARY "@SQLITE_DIR@/sqlite.lib"
+#endif
+
+
+// ODBC
+
+#undef HAS_ODBC
+#if defined(_MSC_VER) && HAS_ODBC
+  #pragma include_alias(<sql.h>,      <@ODBC_DIR@/include/sql.h>)
+  #pragma include_alias(<sqlext.h>,   <@ODBC_DIR@/include/sqlext.h>)
+  #pragma include_alias(<sqltypes.h>, <@ODBC_DIR@/include/sqltypes.h>)
+
+  #define ODBC_LIBRARY_1 "@ODBC_DIR@/lib/odbc32.lib"
+  #define ODBC_LIBRARY_2 "@ODBC_DIR@/lib/odbcCP32.lib"
+#endif
+
+
+#endif

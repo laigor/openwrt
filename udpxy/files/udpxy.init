@@ -1,0 +1,29 @@
+#!/bin/sh /etc/rc.common
+# Sample init script reading its
+# configuration from /etc/config/package
+START=99
+STOP=99
+
+start_service() {
+	local section="$1"
+	
+	include /lib/network
+	scan_interfaces
+	config_load /var/state/network
+
+	config_get port "$section" port
+	config_get mcastif "$section" multicast_iface
+	config_get multicast_iface "$mcastif" ifname
+	/usr/bin/udpxy -p $port -m $multicast_iface
+}
+
+start() {
+	# Do some optionnal testing
+	# before starting the program
+	config_load "udpxy"
+	config_foreach start_service udpxy
+}
+
+stop () {
+	killall udpxy
+}

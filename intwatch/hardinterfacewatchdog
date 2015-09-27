@@ -1,0 +1,17 @@
+#!/bin/sh
+. /lib/functions/network.sh
+self=${0##*/}
+interface=$1
+count=0
+while [ $count -le 4 ] ; do 
+    sleep 15
+    network_get_dnsserver tmpdns $interface
+    let count++
+    for dns in $tmpdns ; do
+	ping -q -c1 $dns && count=0
+    done
+    logger -t $self "$interface : $count"
+done
+reboot &
+exit 0
+

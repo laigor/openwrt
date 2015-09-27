@@ -1,0 +1,210 @@
+10
+
+dir
+0
+svn://svn.openwrt.org/openwrt/branches/backfire/toolchain/uClibc/patches-0.9.32
+svn://svn.openwrt.org/openwrt
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3c298f89-4303-0410-b956-a3cf2f4a3e73
+
+200-no_forced_unwind.patch
+file
+
+
+
+add
+
+190-nptl_use_arch_default_stack_limit.patch
+file
+
+
+
+add
+
+350-use-fputs_unlocked.patch
+file
+
+
+
+add
+
+600-ubicom32-uClibc.patch
+file
+
+
+
+add
+
+110-compat_macros.patch
+file
+
+
+
+add
+
+460-powerpc_libm_fixes.patch
+file
+
+
+
+add
+
+410-llvm_workaround.patch
+file
+
+
+
+add
+
+960-remove_eabi_oabi_selection.patch
+file
+
+
+
+add
+
+150-x86_epoll_fix.patch
+file
+
+
+
+add
+
+905-mod.patch
+file
+
+
+
+add
+
+170-math_finite.patch
+file
+
+
+
+add
+
+480-powerpc_rel24_support.patch
+file
+
+
+
+add
+
+131-inet-fix-__read_etc_hosts_r-segfault.patch
+file
+
+
+
+add
+
+940-include_arm-asm.h.patch
+file
+
+
+
+add
+
+920-remove_sub-arch_variants.patch
+file
+
+
+
+add
+
+140-avr32_atomic_fix.patch
+file
+
+
+
+add
+
+130-ldso-fix-__dl_parse_dynamic_info-segfault.patch
+file
+
+
+
+add
+
+160-mips_signalfd_sfd_nonblock.patch
+file
+
+
+
+add
+
+120-adjtimex.patch
+file
+
+
+
+add
+
+601-ubicom32_uClibc_fixes.patch
+file
+
+
+
+add
+
+930-transform_eabi_oabi_choice.patch
+file
+
+
+
+add
+
+100-do_not_select_extra-warnings.patch
+file
+
+
+
+add
+
+910-thumb_blind_options.patch
+file
+
+
+
+add
+
+180-pthread_cleanup_fix.patch
+file
+
+
+
+add
+
+450-powerpc_copysignl.patch
+file
+
+
+
+add
+
+950-detect_bx_availibility.patch
+file
+
+
+
+add
+

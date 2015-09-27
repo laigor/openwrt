@@ -1,0 +1,39 @@
+--- a/modules/Makefile	2015-04-21 12:37:45.000000000 +0300
++++ b/modules/Makefile	2015-09-26 13:24:58.461840016 +0300
+@@ -8,13 +8,13 @@
+ SRCS :=	lookup_file.c lookup_program.c  lookup_userhome.c \
+ 	lookup_multi.c lookup_hosts.c lookup_dir.c \
+ 	parse_sun.c parse_amd.c \
+-	mount_generic.c  mount_nfs.c  mount_afs.c  mount_autofs.c \
++	mount_generic.c  mount_autofs.c \
+ 	mount_changer.c  mount_bind.c
+ 
+ MODS :=	lookup_file.so lookup_program.so lookup_userhome.so \
+ 	lookup_multi.so lookup_hosts.so lookup_dir.so \
+ 	parse_sun.so parse_amd.so \
+-	mount_generic.so mount_nfs.so mount_afs.so mount_autofs.so \
++	mount_generic.so mount_autofs.so \
+ 	mount_changer.so mount_bind.so
+ 
+ YACCSRC = amd_tok.c amd_parse.tab.c amd_parse.tab.h \
+@@ -29,6 +29,20 @@
+  endif
+ endif
+ 
++
++ifeq ($(AUFS_AFS), 1)
++  SRCS += mount_afs.c
++  MODS += mount_afs.so
++endif
++
++ifeq ($(AUFS_NFS), 1)
++  SRCS += mount_nfs.c
++  MODS += mount_nfs.so
++endif
++
++
++
++
+ ifeq ($(HESIOD), 1)
+   SRCS += lookup_hesiod.c  parse_hesiod.c
+   MODS += lookup_hesiod.so parse_hesiod.so

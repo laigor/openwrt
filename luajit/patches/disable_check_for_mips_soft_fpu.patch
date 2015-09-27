@@ -1,0 +1,14 @@
+--- a/src/lj_arch.h	2012-11-08 14:10:00.000000000 +0400
++++ b/src/lj_arch.h	2012-11-15 13:14:28.981199128 +0400
+@@ -321,9 +321,9 @@
+ #error "No support for PowerPC 64 bit mode"
+ #endif
+ #elif LJ_TARGET_MIPS
+-#if defined(__mips_soft_float)
++/*#if defined(__mips_soft_float)
+ #error "No support for MIPS CPUs without FPU"
+-#endif
++#endif*/
+ #endif
+ #endif
+ 

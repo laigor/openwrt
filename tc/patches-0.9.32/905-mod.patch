@@ -1,0 +1,27 @@
+--- a/extra/Configs/Config.arm
++++ b/extra/Configs/Config.arm
+@@ -30,13 +30,6 @@
+ 
+ endchoice
+ 
+-config USE_BX
+-	bool "Use BX in function return"
+-	default y
+-	depends on !CONFIG_GENERIC_ARM && !CONFIG_ARM610 && !CONFIG_ARM710
+-	help
+-	  Use BX instruction for THUMB aware architectures.
+-
+ choice
+ 	prompt "Target Processor Type"
+ 	default CONFIG_GENERIC_ARM
+@@ -131,3 +124,10 @@
+ 	select ARCH_HAS_MMU
+ 
+ endchoice
++
++config USE_BX
++	bool "Use BX in function return"
++	default y
++	depends on !CONFIG_GENERIC_ARM && !CONFIG_ARM610 && !CONFIG_ARM710
++	help
++	  Use BX instruction for THUMB aware architectures.

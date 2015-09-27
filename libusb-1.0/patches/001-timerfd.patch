@@ -1,0 +1,19 @@
+--- a/libusb/io.c	2011-05-23 17:25:06.000000000 +0400
++++ b/libusb/io.c	2011-05-23 20:03:43.910510935 +0400
+@@ -25,6 +25,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <time.h>
++#include <fcntl.h>
+ 
+ #ifdef HAVE_SYS_TIME_H
+ #include <sys/time.h>
+@@ -1031,7 +1032,7 @@
+ 
+ #ifdef USBI_TIMERFD_AVAILABLE
+ 	ctx->timerfd = timerfd_create(usbi_backend->get_timerfd_clockid(),
+-		TFD_NONBLOCK);
++		O_NONBLOCK);
+ 	if (ctx->timerfd >= 0) {
+ 		usbi_dbg("using timerfd for timeouts");
+ 		r = usbi_add_pollfd(ctx, ctx->timerfd, POLLIN);

@@ -1,0 +1,20 @@
+--- a/configure.in	2011-10-03 09:46:50.000000000 +0400
++++ b/configure.in	2011-11-17 04:44:09.689459325 +0400
+@@ -88,7 +88,7 @@
+ )
+ 
+ AC_HEADER_FIND([asterisk.h], $with_asterisk)
+-AC_HEADER_FIND([iconv.h], /usr/include /usr/local/include /opt/local/include)
++AC_HEADER_FIND([iconv.h],)
+ 
+ AC_DEFINE([ICONV_CONST],[], [Define to const if you has iconv() const declaration of input buffer])
+ AC_MSG_CHECKING([for iconv use const inbuf])
+@@ -211,7 +211,7 @@
+ 
+ case "$target_os" in
+     linux*)
+-	SOLINK="-shared -Xlinker -x"
++	SOLINK="-shared"
+ 	DC_LDFLAGS=""
+ 	;;
+     freebsd*)

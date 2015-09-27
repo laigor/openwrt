@@ -1,0 +1,11 @@
+--- a/n2n.h	2009-11-26 23:52:15.000000000 +0300
++++ b/n2n.h	2010-02-17 01:20:40.000000000 +0300
+@@ -128,7 +128,7 @@
+  * frames. Doing this will break compatibility with the standard n2n packet
+  * format so do it only for experimentation. All edges must be built with the
+  * same value if they are to understand each other. */
+-#define N2N_COMPRESSION_ENABLED 1
++#define N2N_COMPRESSION_ENABLED 0
+ 
+ #define DEFAULT_MTU   1400
+ 

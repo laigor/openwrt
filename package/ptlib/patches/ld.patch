@@ -1,0 +1,12 @@
+diff -Naur ptlib-2.6.5/make/lib.mak myfiles/ptlib-2.6.5/make/lib.mak
+--- a/make/lib.mak	2009-09-21 04:25:30.000000000 +0400
++++ b/make/lib.mak	2009-10-16 12:36:39.000000000 +0400
+@@ -98,7 +98,7 @@
+       LDSOOPTS += -Wl,--kill-at
+     else
+       ifneq ($(OSTYPE),Darwin)
+-        LDSOOPTS += -Wl,-soname,$(LIB_SONAME)
++        LDSOOPTS += -soname,$(LIB_SONAME)
+       endif
+     endif
+   endif

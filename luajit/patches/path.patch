@@ -1,0 +1,22 @@
+--- a/src/luaconf.h	2012-11-08 14:10:00.000000000 +0400
++++ b/src/luaconf.h	2012-11-15 12:34:13.358400498 +0400
+@@ -26,14 +26,14 @@
+ ** Note to distribution maintainers: do NOT patch the following line!
+ ** Please read ../doc/install.html#distro and pass PREFIX=/usr instead.
+ */
+-#define LUA_ROOT	"/usr/local/"
+-#define LUA_LDIR	LUA_ROOT "share/lua/5.1/"
+-#define LUA_CDIR	LUA_ROOT "lib/lua/5.1/"
++#define LUA_ROOT	"/usr/"
++#define LUA_LDIR	LUA_ROOT "lib/lua/"
++#define LUA_CDIR	LUA_ROOT "lib/lua/"
+ #ifdef LUA_XROOT
+ #define LUA_JDIR	LUA_XROOT "share/luajit-2.0.0/"
+ #define LUA_XPATH \
+-  ";" LUA_XROOT "share/lua/5.1/?.lua;" LUA_XROOT "share/lua/5.1/?/init.lua"
+-#define LUA_XCPATH	LUA_XROOT "lib/lua/5.1/?.so;"
++  ";" LUA_XROOT "lib/lua/?.lua;" LUA_XROOT "lib/lua/?/init.lua"
++#define LUA_XCPATH	LUA_XROOT "lib/lua/?.so;"
+ #else
+ #define LUA_JDIR	LUA_ROOT "share/luajit-2.0.0/"
+ #define LUA_XPATH
