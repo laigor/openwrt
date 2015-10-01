@@ -21,7 +21,7 @@ PKG_REMOVE_FILES:=
 
 AUTOFS_MODS := parse_sun.so \
 	mount_nfs4.so mount_nfs.so mount_generic.so mount_changer.so mount_bind.so mount_autofs.so mount_afs.so \
-	lookup_userhome.so lookup_program.so lookup_multi.so lookup_hosts.so lookup_files.so lookup_file.so
+	lookup_userhome.so lookup_program.so lookup_multi.so lookup_hosts.so lookup_files.so lookup_file.so lookup_dir.so
 
 AUTOFS_EXT2_MODS := mount_ext2.so mount_ext3.so mount_ext4.so
 
@@ -95,8 +95,8 @@ define Package/autofs5/install
 	$(INSTALL_DIR) $(1)/etc
 	$(CP) $(PKG_INSTALL_DIR)/etc/auto.* $(1)/etc/
 	$(CP) $(PKG_INSTALL_DIR)/etc/autofs.conf $(1)/etc/
-#	$(INSTALL_DIR) $(1)/etc/hotplug.d/block
-#	$(INSTALL_DATA) ./files/50-autofs $(1)/etc/hotplug.d/block
+	$(INSTALL_DIR) $(1)/etc/hotplug.d/block
+	$(INSTALL_DATA) ./files/50-autofs $(1)/etc/hotplug.d/block
 #	$(INSTALL_BIN) ./files/direct.fstab $(1)/lib/functions/autofs
 #	ln -sf /tmp/auto.master $(1)/etc/
 endef

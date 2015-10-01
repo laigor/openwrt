@@ -2,9 +2,6 @@
 # Author: Zhifeng Gu <guzhifeng1979@hotmail.com>
 # Date: 2012/03
 # License: GPL
-
-blkdev=`dirname $DEVPATH`
-
-if [ `basename $blkdev` != "block" ]; then
+if [ ${ACTION} == add ]; then
     /etc/init.d/autofs reload
 fi
