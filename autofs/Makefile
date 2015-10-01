@@ -4,7 +4,6 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# The patches come from autofs-5.0.5-39.el6_2.1.src.rpm
 #
 
 include $(TOPDIR)/rules.mk

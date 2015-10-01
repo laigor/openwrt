@@ -1,0 +1,10 @@
+--- a/Makefile.in	2000-05-05 07:41:10.000000000 +0400
++++ b/Makefile.in	2015-10-01 23:06:54.621789276 +0300
+@@ -1,5 +1,5 @@
+-CC=gcc
+-CFLAGS=-Wall -g
++# CC=gcc
++CFLAGS += -Wall -g
+ BINS=cdctl sndreset
+ OBJS=cdctl.o version.o ioctls.o iso_header.o
+ DOCS=NEWS NUTSANDBOLTS LICENSE PUBLICKEY README SEGFAULTS

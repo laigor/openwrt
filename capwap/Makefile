@@ -46,9 +46,12 @@ endef
 
 define Package/capwap/install
 	$(INSTALL_DIR) $(1)/usr/bin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/AC $(1)/usr/bin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/WTP $(1)/usr/bin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/WUA $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/{AC,WTP,WUA} $(1)/usr/bin/
+#	$(INSTALL_BIN) $(PKG_BUILD_DIR)/WTP $(1)/usr/bin/
+#	$(INSTALL_BIN) $(PKG_BUILD_DIR)/WUA $(1)/usr/bin/
+	$(INSTALL_DIR) $(1)/etc/capwap
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/settings.{ac,wtp}.txt $(1)/etc/capwap/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/config.{ac,wtp} $(1)/etc/capwap/
 endef
 
 $(eval $(call BuildPackage,capwap))
