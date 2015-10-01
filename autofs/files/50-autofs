@@ -6,8 +6,5 @@
 blkdev=`dirname $DEVPATH`
 
 if [ `basename $blkdev` != "block" ]; then
-    . /lib/functions/autofs.sh
-    if is_running; then
-        reload_config
-    fi
+    /etc/init.d/autofs reload
 fi

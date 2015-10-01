@@ -63,21 +63,25 @@ define Package/autofs5-mount-ext2/description
 endef
 
 define Package/autofs5/conffiles
-/etc/autofs/
+/etc/autofs.conf
+/etc/auto.master
+/etc/auto.misc
+/etc/auto.net
+/etc/auto.smb
 endef
 
-CONFIGURE_ARGS += --with-E2FSCK=/usr/sbin/e2fsck \
-			--with-E3FSCK=/usr/sbin/e2fsck \
-			--with-E4FSCK=/usr/sbin/e2fsck \
-			--with-openldap=no \
+CONFIGURE_ARGS +=	--with-openldap=no \
 			--with-sasl=no \
-			--with-mapdir=/etc/autofs \
 			--with-fifodir=/var/run \
 			ac_cv_path_UMOUNT=/bin/umount \
 			ac_cv_path_MOUNT=/bin/mount \
+			ac_cv_path_E2FSCK=/usr/sbin/e2fsck \
+			ac_cv_path_E3FSCK=/usr/sbin/e2fsck \
+			ac_cv_path_E4FSCK=/usr/sbin/e2fsck \
 			--with-flagdir=/var/run
 
 # 			--with-confdir=/etc/autofs/conf.d \
+#			--with-mapdir=/etc/autofs \
 
 define Package/autofs5/install
 	$(INSTALL_DIR) $(1)/usr/sbin
@@ -88,8 +92,9 @@ define Package/autofs5/install
 	done
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/autofs.init $(1)/etc/init.d/autofs
-	$(INSTALL_DIR) $(1)/etc/autofs
-	$(CP) $(PKG_INSTALL_DIR)/etc/autofs/* $(1)/etc/autofs/
+	$(INSTALL_DIR) $(1)/etc
+	$(CP) $(PKG_INSTALL_DIR)/etc/auto.* $(1)/etc/
+	$(CP) $(PKG_INSTALL_DIR)/etc/autofs.conf $(1)/etc/
 #	$(INSTALL_DIR) $(1)/etc/hotplug.d/block
 #	$(INSTALL_DATA) ./files/50-autofs $(1)/etc/hotplug.d/block
 #	$(INSTALL_BIN) ./files/direct.fstab $(1)/lib/functions/autofs

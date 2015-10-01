@@ -16,3 +16,6 @@ stop() {
     kill -TERM $(cat ${AUTOMOUNT_PIDFILE})
 }
 
+reload() {
+    kill -HUP $(cat $AUTOMOUNT_PIDFILE)
+}
